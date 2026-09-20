@@ -45,3 +45,35 @@ def test_password_strength_medium():
     password = "Password1"
     result = password_strength(password)
     assert result == "Medium"
+
+def test_uppercase_type_error():
+    with pytest.raises(TypeError):
+        has_uppercase(12345)
+
+
+def test_digit_type_error():
+    with pytest.raises(TypeError):
+        has_digit(12345)
+
+
+def test_special_character_type_error():
+    with pytest.raises(TypeError):
+        has_special_character(12345)
+
+
+def test_strong_password():
+    password = "Password1!"
+    result = is_strong_password(password)
+    assert result == True
+
+
+def test_password_strength_strong():
+    password = "Password1!"
+    result = password_strength(password)
+    assert result == "Strong"
+
+
+def test_password_strength_weak():
+    password = "password"
+    result = password_strength(password)
+    assert result == "Weak"
